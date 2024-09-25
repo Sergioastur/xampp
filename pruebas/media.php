@@ -8,7 +8,7 @@
         $media = $media+$num;
     }
 	
-    $media = $media/5;
-
+    $media = $media/count($M);
+    var_dump($M);
     echo "La media es $media";
 ?>

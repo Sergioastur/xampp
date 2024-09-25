@@ -5,22 +5,23 @@
     divisible por 1 y por sí mismo.
 */
 
-
-$num = 17;
-$primo = false;
-if ($num <= 1 || ($num>2 && $num%2 == 0)) {
-    echo "$num no es primo";
-} else {
-    for ($i = 3; $i<=sqrt($num); $i++) {
-        if ($num%$i == 0) {
-            $primo = true;
-        }
-    }
-
-    if ($primo) {
-        echo "$num no es primo";
+for ($num=1; $num<=50; $num++) {
+    
+    $primo = false;
+    if ($num <= 1 || ($num>2 && $num%2 == 0)) {
+        //echo "$num no es primo";
     } else {
-        echo "$num es primo";
+        for ($i = 3; $i<=sqrt($num); $i++) {
+            if ($num%$i == 0) {
+                $primo = true;
+            }
+        }
+
+        if ($primo) {
+            //echo "$num no es primo";
+        } else {
+            echo "$num es primo <br>";
+        }
     }
 }
 ?>
