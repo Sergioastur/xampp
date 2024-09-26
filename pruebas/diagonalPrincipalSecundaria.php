@@ -5,18 +5,16 @@ $m = array(array(1,2,3,1)
 ,          array(10,11,12,1));
 $dPrincipal = 0;
 $dSecundaria = 0;
-for ($a = 0; $a<=3; $a++) {
-    $dPrincipal = $dPrincipal+ $m[$a][$a];
-    
-}
-echo "$dPrincipal <br>";
-$n = 0;
+
+
+
 for ($b = 3; $b>=0; $b--) {
-    
-    $dSecundaria = $dSecundaria + $m[$n][$b];
-    $n++;
+    $dPrincipal = $dPrincipal+ $m[$b][$b];
+    $dSecundaria = $dSecundaria + $m[$b][3-$b];
+   
 }
-echo "$dSecundaria";
+echo "Principal: $dPrincipal <br>";
+echo "Secundaria: $dSecundaria";
 
 
 
