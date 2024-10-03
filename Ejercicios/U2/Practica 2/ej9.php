@@ -28,6 +28,12 @@
             $maxColumna = $tempJ;
         }
 
+
+    }
+    echo "La suma maxima es ".$maximo;
+    echo "<br> Columna: ";
+    foreach ($M as $i => $fila) {
+        echo $M[$i][$maxColumna]." ";
     }
 
 
