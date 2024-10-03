@@ -26,7 +26,21 @@
 
     echo "************* <br>";
 
-    
+    echo "<ul>";
+
+    foreach ($estadios_futbol as $clave => $valor) {
+        if ($clave == "Real Madrid") {
+            unset($valor);
+        } else {
+            echo "<li>".$valor."</li>";
+        }
+
+        
+        
+        
+    }
+
+    echo "</ul> <br>";
 
 
 ?>
