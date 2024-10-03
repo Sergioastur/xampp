@@ -26,10 +26,11 @@
     echo "<ul>";
     foreach ($Familia as $familia => $rol) {
         echo "<li>";
+        echo $familia;
         echo "<ul>";
         
         foreach ($rol as $clave => $nombre) {
-            echo "<li>".$clave."</li>";
+            echo "<li>".$clave."";
             echo "<ul>";
             
             if (!is_array($nombre)) {
@@ -41,7 +42,7 @@
                 
             }
             
-            echo "</ul>";
+            echo "</ul></li>";
         }
         echo "</ul>";
         echo "</li>";
