@@ -3,7 +3,7 @@
     Escribe un script para probar algunas de las funciones mostradas debajo, el sript
     ha de contener al menos tres funciones de cada bloque
 */
-
+/*
 echo "<h1>Funciones de variables</h1> <br>";
 $var = "hola";
 echo isset($var)."<br>";
@@ -30,6 +30,29 @@ $arr = array("size" => "XL", "color" => "gold");
 $val = array_values($arr);
 echo var_dump($val)."<br>";
 echo  count($arr);
+*/
 
+$correo = "sergiosr96@educastur.es";
+$correo = strtolower($correo);
+if (is_string($correo) && !is_null($correo)) {
+    $datos = explode("@", $correo);
+
+    if (!array_key_exists(1, $datos) || count($datos)>2) {
+        echo ("Correo no valido");
+    } else {
+        echo "Usuario: ".$datos[0]."<br> Proveedor de correo: ".$datos[1];
+
+        if (strcmp("educastur.es", $datos[1])) {
+            echo ("<br>Tiene un correo educativo");
+        }
+    }
+
+
+    
+} else if (empty($correo)) {
+    echo "Rellene los datos";
+} else {
+    echo "Valor no valido";
+}
 
 ?>
