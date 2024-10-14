@@ -10,6 +10,18 @@
         public function añadir_persona($peso_persona) {
 
         }
+
+        //Cree un constructor en la clase vehículo que tome como argumento el color y el peso.
+        public function __construct($color, $peso) {
+            $this->color = $color;
+            $this->peso = $peso;
+        }
+
+        //Cree el método _toString de la clase vehículo para que muestre información respecto al objeto.
+        public function __toString()
+        {
+            
+        }
     }
 
     class Cuatro_ruedas extends Vehiculo {
