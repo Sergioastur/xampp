@@ -46,7 +46,21 @@
 
         //ej5 Cree un método público estático en la clase Vehículo que se designe como ver_atributo.
         //ej5 Este método toma como argumento un objeto y muestra el valor de todos sus atributos (si existen), es decir, el color, el peso, el número de puertas, la cilindrada, la longitud y el número de cadenas para la nieve.
-        public static function ver_atributo() {
+        public static function ver_atributo($nomClase) {
+            echo "El color es: ".$nomClase->color."<br>";
+            echo "El peso es: ".$nomClase->peso."<br>";
+            if (isset($nomClase->numero_puertas)){
+                echo "El numero de puertas es: ".$nomClase->numero_puertas."<br>";
+            }
+            if (isset($nomClase->cilindrada)){
+                echo "La cilindrada es: ".$nomClase->cilindrada."<br>";
+            }
+            if (isset($nomClase->longitud)) {
+                echo "La longitud es: ".$nomClase->longitud."<br>";
+            }
+            if (isset($nomClase->numero_cadenas_nieve)) {
+                echo "El numero de cadenas de nieve: ".$nomClase->numero_cadenas_nieve;
+            }
 
         }
     }
@@ -76,7 +90,7 @@
     } 
 
     class Dos_ruedas extends Vehiculo {
-        private $cilindrada;
+        protected $cilindrada;
 
         public function getCilindrada() {
             return $this->cilindrada;
@@ -99,7 +113,7 @@
     }
 
     class Coche extends Cuatro_ruedas {
-        private $numero_cadenas_nieve = 0;
+        protected $numero_cadenas_nieve = 0;
 
         public function getNumero_cadenas_nieve() {
             return $this->numero_cadenas_nieve;
@@ -122,14 +136,15 @@
     }
 
     class Camion extends Cuatro_ruedas {
-        private $longitud = 0;
+        protected $longitud;
 
-        public function __construct($color, $peso, $longitud, $puertas)
+        public function __construct($color, $peso)
         {
             parent::__construct($color, $peso);
-            $this->longitud = $longitud;
-            $this->numero_puertas = $puertas;
+            
         }
+
+        
 
         public function getLongitud() {
             return $this->longitud;
