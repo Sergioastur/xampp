@@ -20,4 +20,8 @@
     $camion->añadir_persona(84);
     $camion->repintar("azul");
     $camion->setNumero_puertas(2);
+
+    //ej5 Muestre todos los valores de los atributos del camión con la función ver_atributo.
+    echo "<br><br>";
+    $camion->ver_atributo($camion);
 ?>

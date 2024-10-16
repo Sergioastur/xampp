@@ -100,6 +100,9 @@
 
         public function quitar_cadenas_nieve($num) {
             $this->numero_cadenas_nieve = $this->numero_cadenas_nieve-$num;
+            if ($this->numero_cadenas_nieve<0) {
+                $this->numero_cadenas_nieve = 0;
+            }
         }
     }
 
