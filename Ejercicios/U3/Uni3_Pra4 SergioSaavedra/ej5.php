@@ -27,8 +27,7 @@
         }
 
         public function añadir_persona($peso_persona) {
-            $this->peso = $this->peso+$peso_persona;
-            return "Se sube una persona <br>";
+            
         }
 
         //ej3 Cree un constructor en la clase vehículo que tome como argumento el color y el peso.
