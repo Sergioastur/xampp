@@ -7,7 +7,7 @@
 */
 if (isset($_POST['num1'])) {
 
-    if(isset($_POST['sumar'])) {
+    /* if(isset($_POST['sumar'])) {
         echo $_POST['num1'],"+",$_POST['num2'],"= ",($_POST['num1']+$_POST['num2']);
     } else if (isset($_POST['resta'])) {
         echo $_POST['num1'],"-",$_POST['num2'],"= ",($_POST['num1']-$_POST['num2']);
@@ -15,6 +15,21 @@ if (isset($_POST['num1'])) {
         echo $_POST['num1'],"*",$_POST['num2'],"= ",($_POST['num1']*$_POST['num2']);
     } else if (isset($_POST['division'])) {
         echo $_POST['num1'],"/",$_POST['num2'],"= ",($_POST['num1']/$_POST['num2']);
+    } */
+
+    switch ($_POST['boton']) {
+        case 'sumar':
+            echo $_POST['num1'],"+",$_POST['num2'],"= ",($_POST['num1']+$_POST['num2']);
+        break;
+        case 'resta':
+            echo $_POST['num1'],"-",$_POST['num2'],"= ",($_POST['num1']-$_POST['num2']);
+        break;
+        case 'mult':
+            echo $_POST['num1'],"*",$_POST['num2'],"= ",($_POST['num1']*$_POST['num2']);
+        break;
+        case 'divi':
+            echo $_POST['num1'],"/",$_POST['num2'],"= ",($_POST['num1']/$_POST['num2']);
+        break;
     }
 
 } else {
@@ -34,10 +49,10 @@ if (isset($_POST['num1'])) {
                 <label for="num2">B:</label>
                 <input type="number" id="num2" name="num2" required>
 
-                <input type="submit" value="Sumar" name="sumar">
-                <input type="submit" value="Resta" name="resta">
-                <input type="submit" value="Mult" name="mult">
-                <input type="submit" value="División" name="division">
+                <input type="submit" value="sumar" name="boton">
+                <input type="submit" value="resta" name="boton">
+                <input type="submit" value="mult" name="boton">
+                <input type="submit" value="divi" name="boton">
             </form>
         </body>
         </html>
