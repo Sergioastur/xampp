@@ -14,18 +14,22 @@
 require_once 'funcion_validar_email.php';
 require_once 'funcion_validar_url.php';
 
+
+
 function nombreBien() {
     if (isset($_POST['nom'])) {
         if (!preg_match("/^[a-zA-Z\s]+$/",$_POST['nom'])) {
-            echo  "<span>* Únicamente se permiten letras y espacios</span>";
+            echo  '<span>* Únicamente se permiten letras y espacios</span>';
+            
         } 
     }
 }
 
 function emailBien() {
-    if (isset($_POST['email'])) {
-        if (!validarEmail($_POST['email'])) {
-            echo  "<span>* E-mail invalido</span>";
+    if (isset($_POST['e-mail'])) {
+        if (!validarEmail($_POST['e-mail'])) {
+            echo  '<span>* E-mail invalido</span> ';
+           
         }
     }
 }
@@ -33,11 +37,20 @@ function emailBien() {
 function webBien() {
     if (isset($_POST['web'])) {
         if (!validarURL($_POST['web'])) {
-            echo  "<span>* URL invalida</span>";
+            echo  '<span>URL invalida </span> ';
+            
         }
     }
 }
 
+function generoReq() {
+    echo "<span>* El genero es obligatorio</span>";
+}
+
+
+
+    
+    
 
 
 
@@ -60,6 +73,7 @@ function webBien() {
 
 <body>
     <form action="#" method="post">
+        <span>* campos requeridos</span><br>
         <label for="nom">Nombre:</label>
         <input type="text" id="nom" name="nom" required>
         <?php nombreBien();?>
@@ -78,10 +92,11 @@ function webBien() {
 
 
         <p>Sexo:</p>
-        <input type="radio" id="hombre" name="hombre" required>
+        <input type="radio" id="hombre" name="sexo" value="hombre" required>
         <label for="hombre">Hombre</label>
-        <input type="radio" id="mujer" name="mujer" required>
+        <input type="radio" id="mujer" name="sexo" value="mujer" required>
         <label for="mujer">Mujer</label>
+        <?php generoReq();?>
         <br>
 
         <input type="submit" value="Enviar" name="Enviar">
@@ -94,9 +109,19 @@ function webBien() {
 <?php
 if (isset($_POST['nom'])) {
     echo "<h1>Tus datos: </h1>";
-    echo<<<_END
+    
+    echo  $_POST['nom']."<br>";
+    echo  $_POST['e-mail']."<br>";
+    
+    if (isset($_POST['web'])) {
+        echo $_POST['web']."<br>";
+    }
 
-    _END;
+    if (isset($_POST['com'])) {
+        echo $_POST['com']."<br>";
+    }
+
+    echo $_POST['sexo'];
 }
     
 
