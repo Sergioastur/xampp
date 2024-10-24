@@ -44,7 +44,10 @@ function webBien() {
 }
 
 function generoReq() {
-    echo "<span>* El genero es obligatorio</span>";
+    if (isset($_POST['sexo']) && empty($_POST['sexo'])) {
+        echo "<span>* El genero es obligatorio</span>";
+    }
+    
 }
 
 

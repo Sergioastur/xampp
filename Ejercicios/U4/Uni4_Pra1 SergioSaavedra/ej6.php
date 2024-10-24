@@ -18,6 +18,7 @@ if (isset($_POST['0'])) {
         echo "$indice: $valor <br>";
         $suma = $suma+$valor;
     }
+    echo "El nuero de valores es ".count($_POST)."<br>";
     echo "La suma es $suma";
 } else if (isset($_POST['num'])) {
     echo<<<_END
