@@ -40,7 +40,7 @@
     <br>
     <form action="pregunta.php" method="post">
         <input type="hidden" name="color" value="<?php echo $color;?>">
-        <input type="submit" value="Enviar" name="submit">
+        <input type="submit" value="Jugar" name="submit">
     </form>
     
 </body>
