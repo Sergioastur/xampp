@@ -1,24 +1,43 @@
 <?php
     session_start();
     require_once "pintar-circulos.php";
-    /* if (isset($_POST["color"])) {
-        $_SESSION["color"] = $_POST["color"];
-    }
-    */
     
-    $control = 0;
 
-
-    function color($num, $control) {
-
-        if (isset($_POST["tempColor"]) && $control == $num) {
-            $tempColor = $_POST["tempColor"];
-        } else {
-            $tempColor = "black";
-        } 
-
-        return $tempColor;
+    if (isset($_SESSION["res1"])) {
+        switch (true) {
+            case $_SESSION["res1"] == "black":
+                $_SESSION["res1"] = $_POST["tempColor"];
+            break;
+            case $_SESSION["res2"] == "black":
+                $_SESSION["res2"] = $_POST["tempColor"];
+            break;
+            case $_SESSION["res3"] == "black":
+                $_SESSION["res3"] = $_POST["tempColor"];
+            break;
+            case $_SESSION["res4"] == "black":
+                $_SESSION["res4"] = $_POST["tempColor"];
+                
+                $_SESSION["respuesta"] = [$_SESSION["res1"],$_SESSION["res2"],$_SESSION["res3"],$_SESSION["res4"]];
+                
+                echo<<<_END
+                     <meta http-equiv="refresh" content="0;url=comprobar.php">
+                _END;
+            break;
+            
+        }
+    } else {
+        $_SESSION["res1"] = "black";
+        $_SESSION["res2"] = "black";
+        $_SESSION["res3"] = "black";
+        $_SESSION["res4"] = "black";
     }
+    
+    
+
+    
+
+
+    
     
 ?>
 
@@ -29,17 +48,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .circulos {
+            display: flex;
+        }
         .circulo {
             width: 100px;       
             height: 100px;      
-            background-color: <?php echo $tempColor;?>; 
+            
             border-radius: 50%; 
         }
     </style>
 </head>
 <body>
     <div class="circulos">
-        <?php $_SESSION["respuesta"] = pintar_circulos(color(0, $control),color(1, $control),color(2, $control),color(3, $control)); $control++;?>
+        <?php  $_SESSION["respuesta"] = pintar_circulos($_SESSION["res1"],$_SESSION["res2"],$_SESSION["res3"],$_SESSION["res4"]); ?>
     </div>
     <form action="#" method="post">
         <input type="submit" value="red" name="tempColor">
