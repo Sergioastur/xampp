@@ -5,11 +5,20 @@
         $_SESSION["color"] = $_POST["color"];
     }
     */
-    if (isset($_POST["tempColor"])) {
-        $tempColor = $_POST["tempColor"];
-    } else {
-        $tempColor = "black";
-    } 
+    
+    $control = 0;
+
+
+    function color($num, $control) {
+
+        if (isset($_POST["tempColor"]) && $control == $num) {
+            $tempColor = $_POST["tempColor"];
+        } else {
+            $tempColor = "black";
+        } 
+
+        return $tempColor;
+    }
     
 ?>
 
@@ -30,7 +39,7 @@
 </head>
 <body>
     <div class="circulos">
-        <?php $_SESSION["respuesta"] = pintar_circulos(color(),color(),color(),color());?>
+        <?php $_SESSION["respuesta"] = pintar_circulos(color(0, $control),color(1, $control),color(2, $control),color(3, $control)); $control++;?>
     </div>
     <form action="#" method="post">
         <input type="submit" value="red" name="tempColor">
