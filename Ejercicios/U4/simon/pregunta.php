@@ -1,14 +1,15 @@
 <?php
     session_start();
-    if (isset($_POST["color"])) {
+    require_once "pintar-circulos.php";
+    /* if (isset($_POST["color"])) {
         $_SESSION["color"] = $_POST["color"];
     }
-
+    */
     if (isset($_POST["tempColor"])) {
         $tempColor = $_POST["tempColor"];
     } else {
         $tempColor = "black";
-    }
+    } 
     
 ?>
 
@@ -28,7 +29,9 @@
     </style>
 </head>
 <body>
-    <div class="circulo"></div>
+    <div class="circulos">
+        <?php $_SESSION["respuesta"] = pintar_circulos(color(),color(),color(),color());?>
+    </div>
     <form action="#" method="post">
         <input type="submit" value="red" name="tempColor">
         <input type="submit" value="green" name="tempColor">

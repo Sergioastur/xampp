@@ -1,5 +1,7 @@
 <?php 
- $nColor = rand(0,3);
+require_once "pintar-circulos.php";
+function color() {
+    $nColor = rand(0,3);
 
  switch ($nColor) {
     case 0:
@@ -14,7 +16,12 @@
     case 3:
         $color = "green";
     break;
+
+    
  }
+ return $color;
+}
+ 
 
 ?>
 
@@ -25,21 +32,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .circulos {
+            display: flex;
+        }
         .circulo {
             width: 100px;       
             height: 100px;      
-            background-color: <?php echo $color;?>; 
             border-radius: 50%; 
+            
         }
+        
     </style>
 </head>
 <body>
-    <div class="circulo">
-
+    <div class="circulos">
+    <?php $_SESSION["solucion"] = pintar_circulos(color(),color(),color(),color());?>
     </div>
     <br>
     <form action="pregunta.php" method="post">
-        <input type="hidden" name="color" value="<?php echo $color;?>">
+        
         <input type="submit" value="Jugar" name="submit">
     </form>
     
