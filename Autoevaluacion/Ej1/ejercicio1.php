@@ -25,7 +25,7 @@
             for ($i = 0; $i<3; $i++){
                 for ($j = 0; $j<2; $j++){
                     
-                    echo "<label for='$i$j'>E($i,$j)</label>  <input type='number' name='$i$j'  required>";
+                    echo "<label for='$i$j'>E($i,$j)</label>  <input type='number' name='$i$j' min='1' max='100'  required>";
                     
                 }
                 echo "<br><br>";
@@ -38,11 +38,9 @@
                     
                     $tempnum = $_POST["$i$j"];
                     $tempbin = decbin($tempnum);
-                    if ($tempnum<1 || $tempnum>100) {
-                        echo "VALOR ERRONEO<br>";
-                    } else {
-                        echo "$tempnum = $tempbin <br>";
-                    }
+                    
+                    echo "$tempnum = $tempbin <br>";
+                    
                     
                 }
 
