@@ -39,7 +39,7 @@
                     $tempnum = $_POST["$i$j"];
                     $tempbin = decbin($tempnum);
                     if ($tempnum<1 || $tempnum>100) {
-                        echo "VALOR ERRONEO";
+                        echo "VALOR ERRONEO<br>";
                     } else {
                         echo "$tempnum = $tempbin <br>";
                     }
