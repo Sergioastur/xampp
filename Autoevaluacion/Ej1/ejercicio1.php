@@ -35,9 +35,15 @@
         } else {
             for ($i = 0; $i<3; $i++) {
                 for ($j = 0; $j<2; $j++){
+                    
                     $tempnum = $_POST["$i$j"];
                     $tempbin = decbin($tempnum);
-                    echo "$tempnum = $tempbin <br>";
+                    if ($tempnum<1 || $tempnum>100) {
+                        echo "VALOR ERRONEO";
+                    } else {
+                        echo "$tempnum = $tempbin <br>";
+                    }
+                    
                 }
 
             }
