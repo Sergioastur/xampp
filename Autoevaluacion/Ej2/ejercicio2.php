@@ -21,7 +21,15 @@ for ($i=0; $i<4; $i++) {
     <h1>Adivina el numero decimal</h1>
     <h2>El numero en BINARIO: <?php foreach($bin as $num){echo $num;}?></h2>
     <?php
-        if($bin[0] == 1) {
+
+        for ($i=0; $i<4; $i++) {
+            if($bin[$i] == 1) {
+                echo "<img src='img/$i.jpg'>";
+            } else {
+                echo "<img src='img/blanco.jpg'>";
+            }
+        }
+        /* if($bin[0] == 1) {
             echo "<img src='img/ocho.jpg'>";
         } else {
             echo "<img src='img/blanco.jpg'>";
@@ -43,7 +51,7 @@ for ($i=0; $i<4; $i++) {
             echo "<img src='img/uno.jpg'>";
         } else {
             echo "<img src='img/blanco.jpg'>";
-        }
+        } */
 
     ?>
     <br><br>
