@@ -18,7 +18,7 @@
         <label for="estandar">Estandar</label><br>
         <input type="radio" id="premium" name="rol" value="premium" required>
         <label for="premium">Premium</label><br>
-        <a href="acceso.php">Inicie sesión</a>
+        <a href="acceso.php">Inicie sesión</a><br>
         <input type="submit" value="Registrarse" name="submit">
     </form>
 </body>

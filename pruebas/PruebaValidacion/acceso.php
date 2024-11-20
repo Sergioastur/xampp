@@ -11,7 +11,7 @@
         <input type="text" id="usu" name="usu" required><br>
         <label for="usu">Contraseña: </label>
         <input type="password" id="psw" name="psw" required><br>
-        <a href="registro.php">Registrese</a>
+        <a href="registro.php">Registrese</a><br>
         <input type="submit" value="Entrar" name="submit">
     </form>
 </body>
