@@ -5,6 +5,7 @@ if ($_POST["psw"] == $_POST["reppsw"]) {
     $_SESSION["psw"] = $_POST["psw"];
     $_SESSION["rol"] = $_POST["rol"];
     echo "Usuario registrado correctamente";
+    echo
 } else {
 
 }
