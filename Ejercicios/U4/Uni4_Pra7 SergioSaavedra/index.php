@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="login.php" method="post">
+    <form action="comprobar.php" method="post">
         <label for="login">Login del usuario: </label>
         <input type="text" id="login" name="login" required>
         <label for="clave">Clave:</label>
