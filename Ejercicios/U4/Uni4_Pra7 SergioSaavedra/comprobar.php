@@ -1,8 +1,16 @@
 <?php
+session_start();
 require_once 'login.php';
 $connection = new mysqli($hn, $un, $pw, $db);
+
 $usu = $_POST["login"];
 $psw = $_POST["clave"];
+
+$_SESSION['hn'] = $hn;
+$_SESSION['un'] = $un;
+$_SESSION['pw'] = $pw;
+$_SESSION['db'] = $db;
+
 if ($connection->connect_error) die("Fatal Error");
 $query = "SELECT * FROM usuarios WHERE usuario='$usu' AND password='$psw'";
 $result = $connection->query($query);
@@ -24,9 +32,12 @@ if ($rows > 0) {
 if (!isset($rol)) {
     $result->close();
     $connection->close();
+    session_destroy();
 } else if ($rol == 'consultor') {
     echo "Ha conectado a la BD como CONSULTOR";
+    echo "<a href='newArticulos.php'>introducir nuevos artículos</a>";
     echo "<a href='verArticulos.php'>visualizar artículos en la tabla artículos</a>";
+    $connection->close();
 } else {
     $result->close();
     $connection->close();
@@ -36,7 +47,7 @@ if (!isset($rol)) {
     echo "Ha conectado a la BD como ADMINISTRADOR<br>";
     echo "<a href='newArticulos.php'>introducir nuevos artículos</a>";
     echo "<a href='verArticulos.php'>visualizar artículos en la tabla artículos</a>";
-
+    $connection->close();
 }
 
 ?>

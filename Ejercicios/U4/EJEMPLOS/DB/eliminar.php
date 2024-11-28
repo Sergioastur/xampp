@@ -2,7 +2,7 @@
     require_once 'login.php';
     $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Fatal Error");
-    $query = "DELETE FROM usuarios WHERE ID= 1";
+    $query = "DELETE FROM usuarios WHERE USU='yolanda'";
     $result = $connection->query($query);
     if (!$result) die("Fatal Error");
 
