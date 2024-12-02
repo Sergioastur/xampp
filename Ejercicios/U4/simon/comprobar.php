@@ -39,7 +39,7 @@
                 <?php pintar_circulos($_SESSION["solucion"][0],$_SESSION["solucion"][1],$_SESSION["solucion"][2],$_SESSION["solucion"][3]);?>
             </div>
             <a href="index.php">Acertaste, nueva ronda</a>
-            <a href="estadistica.php">Estadistica</a>
+            <a href="estadistica.php?usuario=<?php echo $_SESSION['usu']; ?>">Estadistica</a>
         </body>
         </html>
         <?php
@@ -60,7 +60,7 @@
                 <?php pintar_circulos($_SESSION["respuesta"][0],$_SESSION["respuesta"][1],$_SESSION["respuesta"][2],$_SESSION["respuesta"][3]);?>
             </div>
             <a href="index.php">Fallaste, nueva ronda</a>
-            <a href="estadistica.php">Estadistica</a>
+            <a href="estadistica.php?usuario=<?php echo $_SESSION['usu']; ?>">Estadistica</a>
         </body>
         </html>
         <?php

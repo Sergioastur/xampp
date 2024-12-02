@@ -9,6 +9,7 @@
     $query2 = "SELECT codigousu,COUNT(*) AS aciertos FROM jugadas WHERE acierto=1 GROUP BY codigousu";
     $result2 = $connection->query($query2);
     if (!$result2) die("Fatal Error");
+    
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -35,7 +36,7 @@
 </head>
 <body>
     <h1>SIMÓN</h1>
-    <h2><?php echo $_SESSION['usu']; ?>, los resultados son:</h2>
+    <h2><?php echo $_GET['usuario']; ?>, los resultados son:</h2>
     <table>
         <tr>
             <th>Código usuario</th>
