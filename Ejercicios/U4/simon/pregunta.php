@@ -60,6 +60,8 @@
     </style>
 </head>
 <body>
+    <h1>SIMÓN</h1>
+    <h2><?php echo $_SESSION['usu']; ?> pulsa los botones en el orden correspondiente</h2>
     <div class="circulos">
         <?php  $_SESSION["respuesta"] = pintar_circulos($_SESSION["res1"],$_SESSION["res2"],$_SESSION["res3"],$_SESSION["res4"]); ?>
     </div>
