@@ -3,12 +3,20 @@
     require_once 'login.php';
     $connection = new mysqli($hn, $un, $pw, $db);
     if ($connection->connect_error) die("Fatal Error");
-    $query = "SELECT Codigo,Nombre FROM usuarios";
+    $query = "
+    SELECT u.Codigo, u.Nombre, j.aciertos AS aciertos FROM usuarios u
+    LEFT JOIN 
+        (
+            SELECT codigousu, COUNT(*) AS aciertos FROM jugadas WHERE acierto = 1 
+            GROUP BY 
+                codigousu
+        ) j
+    ON 
+        u.Codigo = j.codigousu
+    ";
+
     $result = $connection->query($query);
     if (!$result) die("Fatal Error");
-    $query2 = "SELECT codigousu,COUNT(*) AS aciertos FROM jugadas WHERE acierto=1 GROUP BY codigousu";
-    $result2 = $connection->query($query2);
-    if (!$result2) die("Fatal Error");
     
 ?>
 <!DOCTYPE html>
@@ -53,10 +61,10 @@
                     echo '<td>' .htmlspecialchars($result->fetch_assoc()['Codigo']) .'</td>'; 
                     $result->data_seek($j);
                     echo '<td>' .htmlspecialchars($result->fetch_assoc()['Nombre']) .'</td>';
-                    $result2->data_seek($j);
-                    echo '<td>' .htmlspecialchars($result2->fetch_assoc()['aciertos']) .'</td>';
-                    $result2->data_seek($j);
-                    echo "<td><div class='bar' style='width: " . (htmlspecialchars($result2->fetch_assoc()['aciertos']) * 10) . "px;'></div>"
+                    $result->data_seek($j);
+                    echo '<td>' .htmlspecialchars($result->fetch_assoc()['aciertos']) .'</td>';
+                    $result->data_seek($j);
+                    echo "<td><div class='bar' style='width: " . (htmlspecialchars($result->fetch_assoc()['aciertos']) * 10) . "px;'></div>"
                     .'</td></tr>';
                 
                 }
