@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('autenticacion.php');
-
+$_SESSION['combinacion'] =  rand(0,2);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = $_POST["login"];
     $clave = $_POST["clave"];
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-$_SESSION['combinacion'] =  rand(0,3);
+    
 ?>
 
 <!DOCTYPE html>
