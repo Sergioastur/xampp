@@ -2,6 +2,9 @@
 session_start();
 require_once('autenticacion.php');
 $_SESSION['combinacion'] =  rand(0,2);
+$cartas = ["copas_03","copas_02","copas_02","copas_03","copas_05","copas_05"] ;
+    shuffle($cartas);
+    $_SESSION['baraja'] = $cartas;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = $_POST["login"];
     $clave = $_POST["clave"];

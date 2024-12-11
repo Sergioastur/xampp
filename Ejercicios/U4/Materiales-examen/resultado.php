@@ -3,13 +3,13 @@
     session_start();
     $x = $_POST['x'];
     $y = $_POST['y'];
-    $barajas = $_SESSION['barajas'];
+    $barajas = $_SESSION['baraja'];
     $numIntentos = $_SESSION['cartasLevantadas'];
     $login = $_SESSION["login"];
     
     
 
-    if ($barajas[$_SESSION['combinacion']][$x-1] == $barajas[$_SESSION['combinacion']][$y-1]) {
+    if ($barajas/* [$_SESSION['combinacion']] */[$x-1] == $barajas/* [$_SESSION['combinacion']] */[$y-1]) {
         /* echo "BIEN"; */
         $resp = true;
         $query = "UPDATE jugador SET puntos = ((SELECT puntos FROM jugador WHERE login='$login')+1),extra = ((SELECT extra FROM jugador WHERE login='$login')+$numIntentos) WHERE login='$login'";

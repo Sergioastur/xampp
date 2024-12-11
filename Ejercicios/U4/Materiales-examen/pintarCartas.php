@@ -1,19 +1,19 @@
 <?php
     session_start();
-    $comb = [
-        ["copas_03","copas_02","copas_02","copas_03","copas_05","copas_05"],
+    /* $comb = [
+        ,
         ["copas_02","copas_02","copas_05","copas_03","copas_05","copas_03"],
         ["copas_02","copas_03","copas_05","copas_05","copas_03","copas_02"]
-    ];
-    $_SESSION['barajas'] = $comb;
+    ]; */
+    
 
     
 
     function pintar($levanta) {
-        $comb = $_SESSION['barajas'];
+        $comb = $_SESSION['baraja'];
         for ($i=0; $i<6; $i++) {
             if ($i==$levanta-1 && $levanta != -1) {
-                $archivo = $comb[$_SESSION['combinacion']][$i].".jpg";
+                $archivo = $comb/* [$_SESSION['combinacion']] */[$i].".jpg";
                 echo<<<_END
                     <img src='$archivo'>
                 _END;
