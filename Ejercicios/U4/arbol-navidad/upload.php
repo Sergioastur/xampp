@@ -12,6 +12,13 @@
     
     $uploadOk = 0;
     }
+
+    for ($i=1; $i<=10; ++$i) {
+        $target_file = $target_dir . basename($_FILES["f$i"]["name"]);
+    }
+
+    
+
     
     // Comprobamos si el fichero ya existe
     function existe($target_file) {

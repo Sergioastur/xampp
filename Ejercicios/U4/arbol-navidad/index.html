@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        table {
+            text-align: center;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        
+        table td {
+            padding: 10px;
+        }
+
+        
+        input[type="file"] {
+            display: none; 
+        }
+
+        #izqArr {
+            text-align: center;
+            align-self: end;
+            display: flex;
+            margin-left: 20%;
+        }
+       
+        input[type="file"] + label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745; 
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+           
+        }
+        
+        input[type="submit"] {
+            margin: 20px auto;
+            display: block;
+            padding: 10px 20px;
+            background-color: brown; 
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            
+           
+        }
+
+        #colspan {
+            width: 100%;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td colspan="4">
+                    <input type="file" name="f1" id="f1">
+                    <label for="f1">Subir archivo 1</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="file" name="f2" id="f2">
+                    <label for="f2" id="izqArr">Subir archivo 2</label>
+                </td>
+                <td colspan="2">
+                    <input type="file" name="f3" id="f3">
+                    <label for="f3" id="derArr">Subir archivo 3</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="f4" id="f4">
+                    <label for="f4">Subir archivo 4</label>
+                </td>
+                <td colspan="2">
+                    <input type="file" name="f5" id="f5">
+                    <label for="f5" id="colspan">Subir archivo 5</label>
+                </td>
+                <td>
+                    <input type="file" name="f6" id="f6">
+                    <label for="f6">Subir archivo 6</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="file" name="f7" id="f7">
+                    <label for="f7">Subir archivo 7</label>
+                </td>
+                <td>
+                    <input type="file" name="f8" id="f8">
+                    <label for="f8">Subir archivo 8</label>
+                </td>
+                <td>
+                    <input type="file" name="f9" id="f9">
+                    <label for="f9">Subir archivo 9</label>
+                </td>
+                <td>
+                    <input type="file" name="f10" id="f10">
+                    <label for="f10">Subir archivo 10</label>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Subir TXT" name="submit">
+    </form>
+</body>
+</html>
