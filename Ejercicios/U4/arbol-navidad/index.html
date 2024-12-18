@@ -23,9 +23,26 @@
 
         #izqArr {
             text-align: center;
-            align-self: end;
+            padding-left: 75px;
             display: flex;
-            margin-left: 20%;
+            margin-left: 26%;
+        }
+        #derArr {
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            margin-left: 1%;
+            display: flex;
+            margin-right: 26%;
+            padding-left: 75px;
+        }
+        #izqCen {
+            position: relative;
+            left: 9%;
+        }
+        #derCen {
+            position: relative;
+            right: 9%;
         }
        
         input[type="file"] + label {
@@ -55,7 +72,7 @@
         }
 
         #colspan {
-            width: 100%;
+            width: 80%;
         }
 
         
@@ -83,7 +100,7 @@
             <tr>
                 <td>
                     <input type="file" name="f4" id="f4">
-                    <label for="f4">Subir archivo 4</label>
+                    <label id="izqCen" for="f4">Subir archivo 4</label>
                 </td>
                 <td colspan="2">
                     <input type="file" name="f5" id="f5">
@@ -91,7 +108,7 @@
                 </td>
                 <td>
                     <input type="file" name="f6" id="f6">
-                    <label for="f6">Subir archivo 6</label>
+                    <label id="derCen" for="f6">Subir archivo 6</label>
                 </td>
             </tr>
             <tr>
@@ -113,7 +130,7 @@
                 </td>
             </tr>
         </table>
-        <input type="submit" value="Subir TXT" name="submit">
+        <input type="submit" value="Subir Arbol" name="submit">
     </form>
 </body>
 </html>
