@@ -1,6 +1,6 @@
 <?php
 // Datos de conexión
-$servidor = "localhost:3307";
+$servidor = "localhost:3306";
 $usuario = "root";
 $password = "";
 $db = "ayugijon";
@@ -39,11 +39,21 @@ foreach ($cursor as $document) {
     $field_area = $document['field_area'];
 
     // Insertar en MySQL
-    $sql = "INSERT INTO noticias (titulo, enlace, id, organismo, imagen, alias, etiquetas, fecha, field_peso_value, descripcion, field_area) VALUES ('$titulo', '$enlace', '$id', '$organismo', '$imagen', '$alias', '$etiquetas', '$fecha', '$field_peso_value', '$descripcion', '$field_area')";
+
+    /* $sql = "INSERT INTO noticias (titulo, enlace, id, organismo, imagen, alias, etiquetas, fecha, field_peso_value, descripcion, field_area) VALUES ('$titulo', '$enlace', '$id', '$organismo', '$imagen', '$alias', '$etiquetas', '$fecha', '$field_peso_value', '$descripcion', '$field_area')";
     if ($conn->query($sql) === TRUE) {
         echo "Registro insertado exitosamente.<br>";
     } else {
         echo "Error al insertar el registro: " . $conn->error . "<br>";
+    } */
+
+    $stmt = $conn->prepare("INSERT INTO noticias (titulo, enlace, id, organismo, imagen, alias, etiquetas, fecha, field_peso_value, descripcion, field_area) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssssss", $titulo, $enlace, $id, $organismo, $imagen, $alias, $etiquetas, $fecha, $field_peso_value, $descripcion, $field_area);
+
+    if ($stmt->execute()) {
+        echo "Registro insertado exitosamente.<br>";
+    } else {
+        echo "Error al insertar el registro: " . $stmt->error . "<br>";
     }
 }
 
