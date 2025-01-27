@@ -2,7 +2,7 @@
 require '../mongoDB/vendor/autoload.php'; // Incluye el autoload de Composer
 
 // Conectar a MongoDB
-$servidor = "mongodb://localhost:27017"; // Cambia si usas un puerto o host diferente
+$servidor = "mongodb://localhost:27017"; 
 $cliente = new MongoDB\Client($servidor);
 
 // Seleccionar la base de datos
@@ -26,4 +26,6 @@ if ($resultado->getInsertedCount() > 0) {
 } else {
     echo "Error al insertar el documento.";
 }
+
+unset($cliente); // Cerrar la conexión
 ?>

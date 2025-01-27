@@ -61,4 +61,7 @@ for ($i=0; $i < $rows; $i++) {
     }
 
 }
+
+unset($cliente); // Cerrar la conexión
+$conn->close(); // Cerrar la conexión
 ?>
