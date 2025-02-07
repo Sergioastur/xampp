@@ -13,7 +13,7 @@ Route::get('pagina1', function () {
 
 Route::get('pagina2/{id}', function ($id) {
     return 'Usuario '.$id;
-});
+})->where('id', '[0-9]+');
 
 Route::get('pagina3/{name?}', function($name = null)
 {
