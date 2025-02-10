@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('login', function () {
-    return view('auth/login');
+    return view('auth.login');
    /*  return 'Login usuario'; */
 });
 
@@ -17,17 +17,17 @@ Route::get('logout', function () {
 });
 
 Route::get('catalog', function () {
-    return view('catalog/catalog');
+    return view('catalog.catalog');
 });
 
 Route::get('catalog/show/{id}', function ($id) {
-    return view('catalog/show');
+    return view('catalog.show');
 });
 
 Route::get('catalog/create', function () {
-    return view('catalog/create');
+    return view('catalog.create');
 });
 
 Route::get('catalog/edit/{id}', function ($id) {
-    return view('catalog/edit');
+    return view('catalog.edit');
 });
