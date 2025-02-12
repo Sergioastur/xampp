@@ -6,7 +6,7 @@
 </head>
 <body>
 @extends('layouts.master')
-@section('content')Vista detalle de película {{$id}}
+@section('content')Añadir película
 @stop
 </body>
 </html>
