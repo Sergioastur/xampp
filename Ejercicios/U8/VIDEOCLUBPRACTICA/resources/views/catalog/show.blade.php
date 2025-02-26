@@ -11,7 +11,6 @@
 <img src="{{$arrayPeliculas[$id]['poster']}}" style="height:200px"/>
 </div>
 <div class="col-sm-8">
-{{-- TODO: Datos de la película --}}
 <h1>{{$arrayPeliculas[$id]['title']}}</h1>
 <h3>Año: {{$arrayPeliculas[$id]['year']}}</h3>
 <h4>Director: {{$arrayPeliculas[$id]['director']}}</h4>
