@@ -7,4 +7,5 @@
         <input type="submit" value="Pintar">
         </form>
     _END;
+    
 ?>
