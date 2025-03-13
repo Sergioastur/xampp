@@ -16,9 +16,12 @@ Route::get('logout', function () {
 });
 
 Route::get('catalog', [CatalogController::class, 'getIndex']);
+Route::post('catalog', [CatalogController::class, 'store'])->name('catalog.store');
 
 Route::get('catalog/show/{id}', [CatalogController::class, 'getShow']);
 
 Route::get('catalog/create', [CatalogController::class, 'getCreate']);
 
 Route::get('catalog/edit/{id}', [CatalogController::class, 'getEdit']);
+Route::put('catalog/edit', [CatalogController::class, 'update'])->name('catalog.edit.update');
+

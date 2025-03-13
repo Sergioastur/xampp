@@ -28,5 +28,40 @@ class CatalogController extends Controller
         return view('catalog.edit', array('id'=>$id), array('arrayPeliculas'=>Movie::all()));
     }
 
+    public function store(Request $request)
+    {
+        if (!empty($request->input('title')) && !empty($request->input('year')) && !empty($request->input('director')) && !empty($request->input('poster')) && !empty($request->input('synopsis'))) {
+            $p = new Movie;
+            $p->title = $request->input('title');
+            $p->year = $request->input('year');
+            $p->director = $request->input('director');
+            $p->poster = $request->input('poster');
+            $p->synopsis = $request->input('synopsis');
+            $p->rented = false;
+            $p->save();
+            return redirect('catalog');
+        } else {
+            return view('catalog.create', array('arrayPeliculas'=>Movie::all()));
+        }
+        
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request->id;
+        /* var_dump($id); die(); */
+        $p = Movie::findOrFail($id);
+        $p->title = $request->input('title');
+        $p->year = $request->input('year');
+        $p->director = $request->input('director');
+        $p->poster = $request->input('poster');
+        $p->synopsis = $request->input('synopsis');
+        $p->update();
+        return redirect('catalog');
+    }
+
+
+    
+
     
 }

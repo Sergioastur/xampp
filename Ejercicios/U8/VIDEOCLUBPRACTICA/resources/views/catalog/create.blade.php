@@ -9,8 +9,8 @@
 @section('content')<div class="row">
 <div class="col-sm-8">
 <h1>Nueva película</h1>
-<form action="" method="post">
-{{ csrf_field() }}
+<form action="{{route('catalog.store')}}" method="post">
+@csrf
 <div class="form-group">
 <label for="title">Título</label>
 <input type="text" class="form-control" id="title" name="title">
