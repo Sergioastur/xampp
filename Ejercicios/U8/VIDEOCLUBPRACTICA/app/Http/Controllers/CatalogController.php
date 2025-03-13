@@ -50,7 +50,7 @@ class CatalogController extends Controller
     {
         $id = $request->id;
         /* var_dump($id); die(); */
-        $p = Movie::findOrFail($id);
+        $p = Movie::findOrFail($id+1);
         $p->title = $request->input('title');
         $p->year = $request->input('year');
         $p->director = $request->input('director');
