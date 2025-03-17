@@ -15,7 +15,7 @@
 <input type="hidden" name="id" value="{{$id}}">
 <div class="form-group">
 <label for="title">Título</label>
-<input type="text" class="form-control" id="title" name="title" value="{{$arrayPeliculas[$id]['title']}}">
+<input type="text" class="form-control" id="title" name="title" value="{{$pelicula->title}}">
 </div>
 <div class="form-group">
 <label for="year">Año</label>
@@ -34,6 +34,6 @@
 <textarea class="form-control" id="synopsis" name="synopsis">{{$arrayPeliculas[$id]['synopsis']}}</textarea>
 </div>
 <button type="submit" class="btn btn-primary">Editar película</button>
-@stop
+@endsection
 </body>
 </html>

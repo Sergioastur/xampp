@@ -10,22 +10,31 @@ class CatalogController extends Controller
     
     public function getIndex()
     {
-        return view('catalog.index', array('arrayPeliculas'=>Movie::all()));
+        $arrayPeliculas = Movie::all();
+        
+        return view('catalog.index', compact('arrayPeliculas'));
+        
     }
 
     public function getShow($id)
     {
-        return view('catalog.show', array('id'=>$id), array('arrayPeliculas'=>Movie::all()));
+        $arrayPeliculas = Movie::all();
+        $pelicula = $arrayPeliculas->find($id);
+        return view('catalog.show', compact('pelicula'));
     }
 
     public function getCreate()
     {
-        return view('catalog.create', array('arrayPeliculas'=>Movie::all()));
+        $arrayPeliculas = Movie::all();
+        return view('catalog.create', compact('arrayPeliculas'));
     }
 
     public function getEdit($id)
     {
-        return view('catalog.edit', array('id'=>$id), array('arrayPeliculas'=>Movie::all()));
+        $arrayPeliculas = Movie::all();
+        $pelicula = $arrayPeliculas->findOrFail($id);
+        
+        return view('catalog.edit', array('id'=>$id), compact('pelicula'));
     }
 
     public function store(Request $request)
@@ -48,15 +57,18 @@ class CatalogController extends Controller
 
     public function update(Request $request)
     {
-        $id = $request->id;
+        $id = (int) $request->input('id');
+        
+        /* dd($request->all()); */
         /* var_dump($id); die(); */
-        $p = Movie::findOrFail($id+1);
+        $p = Movie::findOrFail($id);
+        /* var_dump($p); die(); */
         $p->title = $request->input('title');
         $p->year = $request->input('year');
         $p->director = $request->input('director');
         $p->poster = $request->input('poster');
         $p->synopsis = $request->input('synopsis');
-        $p->update();
+        $p->save();
         return redirect('catalog');
     }
 
