@@ -3,18 +3,30 @@
 <head>
 <meta charset="utf-8">
 <title>VideoClub</title>
+
 </head>
 <body>
+@extends('layouts.master')
+
 @section('content')
 <h1>Listado de pictogramas</h1>
-@php($count = 0;)
 <table class="table">
-<tr>
-@for ($i = 0; $i < count($pictogramas); $i++)
-<td>
-<img src="{{$pictogramas[$i]->imagen}}" style="height:200px"/>
-<h3>{{$pictogramas[$i]->imagen}}</h3>
+    <tr>
+        @php($count = 0)
+        @foreach ($arrayImagenes as $pictograma)
+            <td>
+                <img src="{{ asset($pictograma->imagen) }}" style="height:200px"/>
+                <h3>{{ $pictograma->imagen }}</h3>
+            </td>
+            @php($count++)
+            @if ($count == 4)
+                </tr><tr>
+                @php($count = 0)
+            @endif
+        @endforeach
+    </tr>
+</table>
+@endsection
 
-@stop
 </body>
 </html>
